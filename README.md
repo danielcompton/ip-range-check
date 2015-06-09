@@ -4,8 +4,10 @@ This module lets you check if an IP matches one or more IP's or [CIDR](http://en
 
 It accepts either:
 
-* A single CIDR or IP string
-* An array of CIDR and/or IP strings
+* A single CIDR or IP string, e.g. `"125.19.23.0/24"`, or `"2001:cdba::3257:9652"`, or `"62.230.58.1"`
+* An array of CIDR and/or IP strings e.g. `["125.19.23.0/24", "2001:cdba::3257:9652", "62.230.58.1"]`
+
+Importantly, it cannot match an IPv4 address to an IPv6 CIDR or vice versa, (IPv4-mapped IPv6 addresses notwithstanding).
 
 ## IPv4
 
@@ -15,7 +17,6 @@ var ipRangeCheck = require("ip-range-check");
 // Checks CIDR
 ipRangeCheck("192.168.1.1", "102.1.5.2/24")
 // > false
-
 ipRangeCheck("192.168.1.1", "192.168.1.0/24")
 // > true
 
@@ -26,6 +27,10 @@ ipRangeCheck("192.168.1.1", "192.168.1.1")
 // Checks array of CIDR's and string
 ipRangeCheck("192.168.1.1", ["102.1.5.2/24", "192.168.1.0/24", "106.1.180.84"])
 // > true
+
+// Compare IPv6 with IPv4
+ipRangeCheck("195.58.1.62", ["::1/128", "125.92.12.53"])
+// > false
 
 ```
 
@@ -46,8 +51,7 @@ ipRangeCheck("2001:cdba::3257:9652", "2001:cdba::3257:9652/128")
 ipRangeCheck("0:0:0:0:0:FFFF:222.1.41.90", "222.1.41.0/24")
 // > true
 
-//It will normalise IPv6 addresses/CIDR's when comparing them.
-
+//IPv6 addresses/CIDR's are normalised
 ipRangeCheck("2001:cdba:0000:0000:0000:0000:3257:9652", ["2001:cdba:0:0:0:0:3257:9652"])
 // > true
 ```
