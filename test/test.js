@@ -37,6 +37,13 @@ describe("IP Range check", function () {
                 assert.equal(true, ipRangeCheck("102.1.5." + i, "102.1.5.0/24"))
             }
         });
+
+        describe("transmitted over IPv6", function(){
+            it("should match IPv4 CIDR", function () {
+                assert.equal(true, ipRangeCheck("0:0:0:0:0:FFFF:222.1.41.90", "222.1.41.90"));
+                assert.equal(true, ipRangeCheck("0:0:0:0:0:FFFF:222.1.41.90", "222.1.41.0/24"));
+            })
+        });
     });
 
     describe("for mixed types", function () {
