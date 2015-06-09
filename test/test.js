@@ -12,6 +12,7 @@ describe("IP Range check", function () {
         it("should succeed when the IP is in the range", function () {
             assert.equal(true, ipRangeCheck("::1", "::1"));
             assert.equal(true, ipRangeCheck("::1", ["::1"]));
+            assert.equal(true, ipRangeCheck("2001:cdba::3257:9652", "2001:cdba::3257:9652/128"))
         });
 
         it("an array of the same CIDRs should be the same as one CIDR string", function () {
@@ -21,6 +22,7 @@ describe("IP Range check", function () {
         it("should handle IPv6 synonyms", function () {
             assert.equal(true, ipRangeCheck("2001:cdba:0000:0000:0000:0000:3257:9652", "2001:cdba:0:0:0:0:3257:9652"));
             assert.equal(true, ipRangeCheck("2001:cdba:0000:0000:0000:0000:3257:9652", "2001:cdba::3257:9652"));
+            assert.equal(true, ipRangeCheck("2001:cdba:0:0:0:0:3257:9652", "2001:cdba:0000:0000:0000:0000:3257:9652/128"));
         })
     });
 
