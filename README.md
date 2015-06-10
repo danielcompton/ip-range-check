@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Day8/ip-range-check.svg?branch=master)](https://travis-ci.org/Day8/ip-range-check)
 
+[![NPM](https://nodei.co/npm/ip-range-check.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ip-range-check/)
+
 This module lets you check if an IP matches one or more IP's or [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) ranges. It handles IPv6, IPv4, and IPv4-mapped over IPv6 addresses.
 
 It accepts either:
@@ -10,6 +12,12 @@ It accepts either:
 * An array of CIDR and/or IP strings, e.g. `["125.19.23.0/24", "2001:cdba::3257:9652", "62.230.58.1"]`
 
 Importantly, it cannot match an IPv4 address to an IPv6 CIDR or vice versa, (IPv4-mapped IPv6 addresses notwithstanding).
+
+## Installing
+
+```sh
+npm install ip-range-check --save
+```
 
 ## IPv4
 
