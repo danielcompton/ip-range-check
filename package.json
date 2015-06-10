@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielcompton/ip-range-check.git"
+    "url": "git+https://github.com/day8/ip-range-check.git"
   },
   "keywords": [
     "ip",
@@ -19,7 +19,7 @@
     "range"
   ],
   "author": "Daniel Compton (http://danielcompton.net)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/danielcompton/ip-range-check/issues"
   },
