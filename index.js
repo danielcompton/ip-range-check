@@ -38,5 +38,3 @@ function check_single_cidr(addr, cidr) {
         return false
     }
 }
-
-debugger;
