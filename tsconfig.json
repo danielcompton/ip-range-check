@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "declaration": true,
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "include": ["index.ts", "test/index.spec.ts"],
+  "exclude": ["node_modules/**/*", "dist/**/*"]
+}
