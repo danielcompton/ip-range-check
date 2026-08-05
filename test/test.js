@@ -1,4 +1,5 @@
 var assert = require("assert");
+var { describe, it } = require("node:test");
 var ipRangeCheck = require("../index");
 
 

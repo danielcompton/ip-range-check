@@ -27,16 +27,20 @@ now validate input format separately (e.g. with
 ### Dependencies
 
 * Upgraded ipaddr.js 1.9.1 → 2.5.0.
-* Upgraded mocha 2.5.3 → 11.8.0 (dev dependency), clearing all known
-  vulnerabilities in its transitive dependencies. Added npm `overrides` for
-  `diff` and `serialize-javascript` until mocha ships patched ranges.
-  `npm audit` reports zero vulnerabilities.
+* Removed mocha in favour of Node's built-in test runner (`node --test`).
+  The package now has zero dev dependencies and a single runtime
+  dependency, and `npm audit` reports zero vulnerabilities.
 * Committed `package-lock.json`.
+
+Running the tests now requires Node.js 20 or newer. This does not affect
+consumers of the library — the shipped code is unchanged and its supported
+Node versions are unaffected.
 
 ### Testing and CI
 
 * Migrated CI from Travis CI to GitHub Actions, testing on Node.js 20, 22,
   and 24.
+* Switched the test runner to `node --test` (see Dependencies above).
 * Expanded the test suite (8 → 21 tests): invalid addresses and ranges,
   IPv6 prefix ranges, range boundary conditions, `/32` and `/0` prefixes,
   empty and partially-invalid range arrays, and the `inet_aton` notation
