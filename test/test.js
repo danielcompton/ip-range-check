@@ -85,6 +85,23 @@ describe("IP Range check", function () {
         })
     });
 
+    describe("for inet_aton style IPv4 notations", function () {
+        it("should expand shorthand addresses", function () {
+            assert.equal(true, ipRangeCheck("127.1", "127.0.0.1"));
+            assert.equal(true, ipRangeCheck("127.1", "127.0.0.0/8"));
+            assert.equal(true, ipRangeCheck("127.0.1", "127.0.0.1"))
+        });
+
+        it("should parse hexadecimal octets", function () {
+            assert.equal(true, ipRangeCheck("0x7f.1", "127.0.0.1"))
+        });
+
+        it("should parse leading-zero octets as octal", function () {
+            assert.equal(true, ipRangeCheck("010.1", "8.0.0.1"));
+            assert.equal(false, ipRangeCheck("010.1", "10.0.0.1"))
+        })
+    });
+
     describe("for invalid input", function () {
         it("should fail for malformed IP addresses", function () {
             assert.equal(false, ipRangeCheck("abc", "192.168.1.0/24"));
