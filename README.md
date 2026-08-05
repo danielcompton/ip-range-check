@@ -1,6 +1,6 @@
 # IP Range Check
 
-[![Build Status](https://travis-ci.org/danielcompton/ip-range-check.svg?branch=master)](https://travis-ci.org/danielcompton/ip-range-check)
+[![Test](https://github.com/danielcompton/ip-range-check/actions/workflows/test.yml/badge.svg)](https://github.com/danielcompton/ip-range-check/actions/workflows/test.yml)
 
 [![NPM](https://nodei.co/npm/ip-range-check.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ip-range-check)
 
