@@ -33,6 +33,6 @@
     "ipaddr.js": "^1.0.1"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^11.8.0"
   }
 }
