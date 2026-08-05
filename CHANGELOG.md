@@ -4,6 +4,8 @@
 
 ### Security fix: SSRF filter bypass via abbreviated IPv4 notation
 
+[GHSA-87xc-4hwr-pxf6](https://github.com/danielcompton/ip-range-check/security/advisories/GHSA-87xc-4hwr-pxf6)
+
 `ipRangeCheck` previously treated any unparseable address as "not in range"
 (`false`). Abbreviated IPv4 forms such as `"127.1"`, `"0177.1"`, and
 `"127.0x1"` failed to parse under `ipaddr.js` 1.x, so a denylist check like
@@ -31,7 +33,7 @@ connecting:
 
 This matches what those inputs actually resolve to on a real network stack,
 which is generally what you want when checking whether an address falls in a
-range (e.g. blocklisting `127.0.0.0/8` now correctly catches `"127.1"`).
+range (e.g. blocking `127.0.0.0/8` now correctly catches `"127.1"`).
 However, if you were relying on these notations failing validation, you must
 now validate input format separately (e.g. with
 `ipaddr.IPv4.isValidFourPartDecimal()` from ipaddr.js).
