@@ -32,14 +32,14 @@ now validate input format separately (e.g. with
   dependency, and `npm audit` reports zero vulnerabilities.
 * Committed `package-lock.json`.
 
-Running the tests now requires Node.js 20 or newer. This does not affect
+Running the tests now requires Node.js 22 or newer. This does not affect
 consumers of the library — the shipped code is unchanged and its supported
 Node versions are unaffected.
 
 ### Testing and CI
 
-* Migrated CI from Travis CI to GitHub Actions, testing on Node.js 20, 22,
-  and 24.
+* Migrated CI from Travis CI to GitHub Actions, testing on Node.js 22, 24,
+  and 26 (the currently supported releases).
 * Switched the test runner to `node --test` (see Dependencies above).
 * Expanded the test suite (8 → 21 tests): invalid addresses and ranges,
   IPv6 prefix ranges, range boundary conditions, `/32` and `/0` prefixes,

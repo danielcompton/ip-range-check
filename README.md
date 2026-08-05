@@ -69,7 +69,7 @@ ipRangeCheck("2001:cdba:0000:0000:0000:0000:3257:9652", ["2001:cdba::3257:9652"]
 
 ## Developing
 
-To run the tests (requires Node.js 20 or newer, which provides the built-in
+To run the tests (requires Node.js 22 or newer, which provides the built-in
 test runner):
 
 ```
