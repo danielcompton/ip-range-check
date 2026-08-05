@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 (2026-08-05)
+## 1.0.0 (unreleased)
 
 ### Behavior change: short/hex/octal IPv4 notations are now accepted
 
