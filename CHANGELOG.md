@@ -1,6 +1,18 @@
 # Changelog
 
-## 1.0.0 (unreleased)
+## 0.2.1
+
+### Security fix: SSRF filter bypass via abbreviated IPv4 notation
+
+`ipRangeCheck` previously treated any unparseable address as "not in range"
+(`false`). Abbreviated IPv4 forms such as `"127.1"`, `"0177.1"`, and
+`"127.0x1"` failed to parse under `ipaddr.js` 1.x, so a denylist check like
+`ipRangeCheck(host, ["127.0.0.0/8", ...])` returned `false` for them — even
+though Node, browsers, curl, and most OS resolvers connect these forms to
+`127.0.0.1`. An application using this library to block requests to private
+IP ranges (a common SSRF defense) could be bypassed by an attacker supplying
+one of these forms as the target host. See the security advisory for full
+details, including which usage patterns are and aren't affected.
 
 ### Behavior change: short/hex/octal IPv4 notations are now accepted
 
